@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>User Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let listuser of user">
+            <td>{{listuser.name}}</td>
+            <td>{{listuser.role}}</td>
+            <td><a [routerLink]="['/user', listuser.uid]">action</a></td>
+        </tr>
+    </tbody>
+
+</table>
