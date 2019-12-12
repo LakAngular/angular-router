@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { UsersComponent } from './components/users/users.component';
+import { AdminModule } from './admin/admin.module';
 
 
 const routes: Routes = [
@@ -13,6 +14,11 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'users', component: UsersComponent},
   {path: 'user/:uid', component: UserComponent},
+
+  {path: 'home', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  {path: 'home', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+  {path: 'home', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
+
   {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 
