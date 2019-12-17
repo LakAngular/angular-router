@@ -6,6 +6,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { UsersComponent } from './components/users/users.component';
 import { AdminModule } from './admin/admin.module';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'users', component: UsersComponent},
   {path: 'user/:uid', component: UserComponent},
+  {path: 'register', component: RegisterComponent},
 
   {path: 'home', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   {path: 'home', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },

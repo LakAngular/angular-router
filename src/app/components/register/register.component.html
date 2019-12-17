@@ -1,0 +1,32 @@
+<hr/>
+<p>Template Driven Form</p>
+<form #registerForm="ngForm" (ngSubmit)="submit(registerForm)">
+    <div><label>Enter User Name:</label>
+        <input type="text" placeholder="User Name" name="username" #uname="ngModel" [(ngModel)]="username" required> </div>
+    <div class="err-message" *ngIf="uname.touched && uname.invalid">User Namer required.</div>
+    <div><label>Email:</label>
+        <input type="email" placeholder="Email" name="email" #mail="ngModel" [(ngModel)]="email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"> </div>
+    <div class="err-message" *ngIf="mail.touched && mail.invalid">Email required.</div>
+    <div class="err-message" *ngIf="mail.hasError('pattern')">Enter a valid email.</div>
+    <div><label>Password:</label>
+        <input type="text" placeholder="Phone No" name="phone" #phonenumber="ngModel" [(ngModel)]="phone" pattern="^[1-9]{10,10}$/" required> </div>
+    <div class="err-message" *ngIf="phonenumber.touched && phonenumber.invalid && phonenumber.hasError('pattern')">Enter a valid phone no.</div>
+    <div><button>Submit</button><button (click)="clearform(registerForm)">Reset</button></div>
+
+</form>
+
+<p>Invalid and Submited- show error message onsubmit and reset the form in onclick(angular side)</p>
+<form #registerForm2="ngForm" (ngSubmit)="submitform(registerForm2)">
+    <div><label>Enter User Name:</label>
+        <input type="text" placeholder="User Name" name="name" #fname="ngModel" [(ngModel)]="name" required> </div>
+    <div class="err-message" *ngIf="fname.touched && fname.invalid">User Namer required.</div>
+    <div><label>Email:</label>
+        <input type="email" placeholder="Email" name="mailid" #mail="ngModel" [(ngModel)]="mailid" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"> </div>
+    <div class="err-message" *ngIf="mailid.touched && mailid.invalid">Email required.</div>
+    <div class="err-message" *ngIf="mailid.hasError('pattern')">Enter a valid email.</div>
+    <div><label>Password:</label>
+        <input type="text" placeholder="Phone No" name="mobile" #mobilenumber="ngModel" [(ngModel)]="mobile" pattern="^[1-9]{10,10}$/" required> </div>
+    <div class="err-message" *ngIf="mobilenumber.touched && mobilenumber.invalid && mobilenumber.hasError('pattern')">Enter a valid phone no.</div>
+    <div><button>Submit</button><button (click)="clearfield(registerForm1)">Reset</button></div>
+    <p>{{errmessage}}</p>
+</form>

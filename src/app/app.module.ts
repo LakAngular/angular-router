@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
-
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,13 @@ import { UserComponent } from './components/user/user.component';
     ContactUsComponent,
     PageNotFoundComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
