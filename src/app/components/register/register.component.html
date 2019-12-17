@@ -9,8 +9,9 @@
     <div class="err-message" *ngIf="mail.touched && mail.invalid">Email required.</div>
     <div class="err-message" *ngIf="mail.hasError('pattern')">Enter a valid email.</div>
     <div><label>Password:</label>
-        <input type="text" placeholder="Phone No" name="phone" #phonenumber="ngModel" [(ngModel)]="phone" pattern="^[1-9]{10,10}$/" required> </div>
-    <div class="err-message" *ngIf="phonenumber.touched && phonenumber.invalid && phonenumber.hasError('pattern')">Enter a valid phone no.</div>
+        <input type="text" placeholder="Phone No" name="phone" #phonenumber="ngModel" [(ngModel)]="phone" pattern="[5-6]{1}[0-9]{9}{10,10}" required> </div>
+    <div class="err-message" *ngIf="phonenumber.touched && phonenumber.invalid">Enter a valid phone no.</div>
+    <div class="er-message" *ngIf="phonenumber.hasError('pattern')"></div>
     <div><button>Submit</button><button (click)="clearform(registerForm)">Reset</button></div>
 
 </form>

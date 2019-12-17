@@ -1,0 +1,52 @@
+<form [formGroup]="registerreactForm" (ngSubmit)="submitform()">
+    <div class="container">
+        <div class="row">
+            <img [src]="imageURL">
+        </div>
+        <div class="row">
+            <label>User Name:</label>
+            <input type="text" formControlName="username" placeholder="User Name">
+        </div>
+        <div class="err-message" *ngIf="hasError('username','required')">User Name required.</div>
+        <div class="err-message" *ngIf="hasError('username','minlength')">Enter User Name with minimum of 6 character.</div>
+        <div class="row">
+            <label>Email:</label>
+            <input type="email" formControlName="email" placeholder="email">
+            <div class="err-message" *ngIf="hasError('email','required')">Email required.</div>
+            <div class="err-message" *ngIf="hasError('email','pattern')">Enter valid email.</div>
+        </div>
+        <div class="row">
+            <label>Phone:</label>
+            <input type="tel" formControlName="telephone" placeholder="TelePhone">
+            <div class="err-message" *ngIf="hasError('telephone','required')">Telephone no required.</div>
+            <div class="err-message" *ngIf="hasError('telephone','pattern')">Enter valid telephone no.</div>
+        </div>
+        <div class="row">
+            <label>City:</label>
+            <input type="text" formControlName="city" placeholder="City">
+        </div>
+        <div class="row">
+            <label>Country:</label>
+            <select formControlName="country" placeholder="Country">
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+             <option value="uk">UK</option>
+              <option value="japan">Japan</option>
+              <option value="china">China</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>Gender:</label>
+            <input type="radio" formControlName="gender" value="male" [checked]="true"> Male
+            <input type="radio" formControlName="gender" value="female"> Female
+        </div>
+        <div class="row">
+            <input type="checkbox" formControlName="tc" [checked]="true"> I Agree
+        </div>
+        <div class="err-message" *ngIf="hasError('tc','requiredtrue')">Please accept terms and conditions.</div>
+        <div class="row">
+            <button>Submit</button>
+            <button>Reset</button>
+        </div>
+    </div>
+</form>

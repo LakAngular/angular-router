@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { NgModule, Renderer2 } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterReactComponent } from './components/register-react/register-react.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { RegisterComponent } from './components/register/register.component';
     PageNotFoundComponent,
     UsersComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterReactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

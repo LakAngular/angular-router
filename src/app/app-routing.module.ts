@@ -7,6 +7,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { UsersComponent } from './components/users/users.component';
 import { AdminModule } from './admin/admin.module';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterReactComponent } from './components/register-react/register-react.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'user/:uid', component: UserComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'register-react', component: RegisterReactComponent},
 
   {path: 'home', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   {path: 'home', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
