@@ -8,6 +8,8 @@ import { UsersComponent } from './components/users/users.component';
 import { AdminModule } from './admin/admin.module';
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterReactComponent } from './components/register-react/register-react.component';
+import { RegisterFormarrayComponent } from './components/register-formarray/register-formarray.component';
+import { RegisterCustomvalidationComponent } from './components/register-customvalidation/register-customvalidation.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,8 @@ const routes: Routes = [
   {path: 'user/:uid', component: UserComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'register-react', component: RegisterReactComponent},
-
+  {path: 'register-formarray', component: RegisterFormarrayComponent},
+  {path: 'register-customvalidation', component: RegisterCustomvalidationComponent},
   {path: 'home', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   {path: 'home', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   {path: 'home', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },

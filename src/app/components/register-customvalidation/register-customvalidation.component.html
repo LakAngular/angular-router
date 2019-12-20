@@ -1,0 +1,30 @@
+<form [formGroup]="registerForm">
+    <table>
+        <tr>
+            <td><select formControlName="user">
+                  <option *ngFor="let item of user" [value]="item">{{item}}</option></select>
+            </td>
+        </tr>
+        <tr class="err-message" *ngIf="hasError('user','isadminrequired')">
+            <td>Resgister here</td>
+        </tr>
+        <tr>
+            <td><input type="number" formControlName="qty" placeholder="Quantity"></td>
+        </tr>
+        <tr class="err-message" *ngIf="hasError('qty','greaterthan')">
+            <td>Qty should be greather than 10</td>
+        </tr>
+        <tr>
+            <td><input type="tel" formControlName="personalmobile" placeholder="Personal Mobible"></td>
+        </tr>
+        <tr>
+            <td><input type="tel" formControlName="workmobile" placeholder="Work Mobile"></td>
+        </tr>
+        {{registerForm.hasError('nomatch')}}
+        <tr *ngIf="registerForm.hasError('nomatch')">
+            <td>Personal Mobible Number and Work Mobile Number not matching</td>Personal Mobible Number </tr>
+        <tr>
+            <td><button>Submit</button></td>
+        </tr>
+    </table>
+</form>

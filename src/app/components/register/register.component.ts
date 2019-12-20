@@ -37,7 +37,5 @@ export class RegisterComponent implements OnInit {
     registerForm.resetForm();
   }
 
-  clearform(registerForm1: NgForm) {
-    registerForm1.resetForm();
-  }
+
 }

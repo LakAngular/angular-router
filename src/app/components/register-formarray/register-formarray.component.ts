@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+
 @Component({
-  selector: 'app-register-react',
-  templateUrl: './register-react.component.html',
-  styleUrls: ['./register-react.component.scss']
+  selector: 'app-register-formarray',
+  templateUrl: './register-formarray.component.html',
+  styleUrls: ['./register-formarray.component.scss']
 })
-export class RegisterReactComponent implements OnInit {
+export class RegisterFormarrayComponent implements OnInit {
+
   registerreactForm: FormGroup;
   submitted = false;
   imageURL = '../assets/images/male.jpg';
+  country: string[] = ['India', 'USA', 'UK', 'China'];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -16,8 +19,8 @@ export class RegisterReactComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
       telephone: ['', [Validators.required, Validators.pattern('[5-6]{1}[0-9]{9}')]],
-      city: '',
-      country: '',
+
+      addresses: this.fb.array([this.getAddress()]),
       gender: '',
       tc: ['', Validators.requiredTrue]
 
@@ -34,7 +37,23 @@ export class RegisterReactComponent implements OnInit {
     );
   }
 
-
+getAddress() {
+  return this.fb.group(
+   {
+    country: '',
+    city: ['', Validators.required],
+    address: ['', Validators.required]
+   }
+  );
+}
+addAddress() {
+  let addresses = this.registerreactForm.get('addresses') as FormArray;
+  addresses.push(this.getAddress());
+}
+deleteAddress(i) {
+  let addresses = this.registerreactForm.get('addresses') as FormArray;
+  addresses.removeAt(i);
+}
 hasError(controlName: string, validationName: string): boolean {
   return this.registerreactForm.get(controlName).hasError(validationName) &&
           (this.registerreactForm.get(controlName).touched || this.submitted);
@@ -45,4 +64,5 @@ submitform() {
   this.submitted = true;
   // console.log(this.registerreactForm.get('tc').value);
 }
+
 }

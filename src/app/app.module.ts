@@ -13,6 +13,9 @@ import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterReactComponent } from './components/register-react/register-react.component';
 
+import { RegisterFormarrayComponent } from './components/register-formarray/register-formarray.component';
+import { RegisterCustomvalidationComponent } from './components/register-customvalidation/register-customvalidation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,11 @@ import { RegisterReactComponent } from './components/register-react/register-rea
     UsersComponent,
     UserComponent,
     RegisterComponent,
-    RegisterReactComponent
+    RegisterReactComponent,
+
+    RegisterFormarrayComponent,
+
+    RegisterCustomvalidationComponent
   ],
   imports: [
     BrowserModule,
